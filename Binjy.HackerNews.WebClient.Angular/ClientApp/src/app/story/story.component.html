@@ -1,0 +1,22 @@
+<div class="card mb-2" >
+  <div class="card-body">
+    <h4 ><a href="{{story.url}}" target="_blank" >{{story.title}}</a></h4>
+    <h6 class="card-subtitle mb-2 text-muted" *ngIf="story.url?.length > 0"><em>{{story.url}}</em></h6>
+    <div class="d-flex justify-content-between mt-3">
+      <h5>
+        <span class="badge badge-pill badge-secondary">{{story.score}}</span> points by
+        <span class="badge badge-pill badge-secondary">{{story.author}}</span> on
+        <span class="badge badge-pill badge-secondary">{{story.time}}</span></h5>
+      <h5>
+        <span class="badge badge-pill badge-warning" *ngIf="story.commentCount > 0">
+          <a href="api/hacker/stories/{{story.id}}/comments" style="color:black;" target="_blank">{{story.commentCount}} Comments</a>
+        </span>
+        <span class="badge badge-pill badge-dark" *ngIf="story.commentCount == 0">
+          No Comments
+        </span>
+      </h5>
+    </div>
+  </div>
+</div>
+
+

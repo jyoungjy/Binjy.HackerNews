@@ -1,0 +1,21 @@
+
+<div class="d-flex justify-content-between">
+  <h1 class="display-3">{{listTitle}}</h1>
+  <div>
+    <label>Number of Hacks:</label>
+    <select [(ngModel)]='selectedLimit' (ngModelChange)='onLimitChanged($event)'
+            class="form-control form-control-lg">
+      <option class='option' *ngFor='let limit of limits' [selected]="selectedLimit == limit" [value]="limit">{{limit}}</option>
+    </select>
+  </div>
+</div>
+<h6 *ngIf="stories?.length > 0">Hack'd {{stories.length}} Items </h6>
+<div class="alert alert-warning" role="alert">
+  Note: only Story items are returned so items per page may not match items returned. Click link in comments to see example of pulling Comment types.
+</div>
+<p *ngIf="stories?.length == 0"><em>Loading...</em></p>
+<div *ngFor="let story of stories">
+  <app-story [story]="story"></app-story>
+</div>
+
+
