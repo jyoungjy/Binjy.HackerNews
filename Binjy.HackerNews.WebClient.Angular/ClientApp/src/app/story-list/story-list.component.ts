@@ -10,34 +10,33 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class StoryListComponent implements OnInit {
     stories: Story[] = [];
     limits: NumberArray = [10, 50, 100, 200];
-    selectedLimit: number = 10;
+    selectedLimit = 10;
     listTitle: string;
     qualifier: string;
 
     constructor(private storyService: StoryService, private route: ActivatedRoute) {}
 
     ngOnInit() {
-        //getting context data from route
+        // getting context data from route
         this.route.data.subscribe(data => {
-            this.qualifier = data["qualifier"];
-        })
+            this.qualifier = data['qualifier'];
+        });
 
         this.update();
     }
 
     update() {
-        //getting top stories or newest stories based on context
-        if (this.qualifier == "top") {
+        // getting top stories or newest stories based on context
+        if (this.qualifier === 'top') {
             this.showTopStories();
-        }
-        else {
+        } else {
             this.showNewestStories();
         }
     }
 
     // get the top stories
     showTopStories() {
-        this.listTitle = "Top Stories";
+        this.listTitle = 'Top Stories';
         this.storyService.getTopStories(this.selectedLimit).subscribe(result => {
             this.stories = result;
         }, error => console.error(error));
@@ -45,13 +44,13 @@ export class StoryListComponent implements OnInit {
 
     // get the newest stories
     showNewestStories() {
-        this.listTitle = "Newest Stories";
+        this.listTitle = 'Newest Stories';
         this.storyService.getNewestStories(this.selectedLimit).subscribe(result => {
             this.stories = result;
         }, error => console.error(error));
     }
 
-    //requery when items per page is changed
+    // requery when items per page is changed
     onLimitChanged(limitVal: number) {
         this.selectedLimit = limitVal;
 

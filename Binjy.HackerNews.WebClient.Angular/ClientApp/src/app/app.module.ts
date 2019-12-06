@@ -14,7 +14,6 @@ import { StoryListComponent } from './story-list/story-list.component';
   declarations: [
     AppComponent,
     NavMenuComponent,
-    HomeComponent,
     StoryComponent,
     StoryListComponent
   ],
@@ -23,10 +22,9 @@ import { StoryListComponent } from './story-list/story-list.component';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-        { path: 'story', component: StoryComponent },
-        { path: 'topstories', component: StoryListComponent, data: { qualifier: "top" } },
-        { path: 'neweststories', component: StoryListComponent, data: { qualifier: "newest" } },
+      { path: '', component: StoryListComponent, data: { qualifier: 'top' } },
+        { path: 'topstories', component: StoryListComponent, data: { qualifier: 'top' } },
+        { path: 'neweststories', component: StoryListComponent, data: { qualifier: 'newest' } },
     ])
   ],
   providers: [],

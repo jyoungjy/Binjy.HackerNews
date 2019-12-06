@@ -7,7 +7,7 @@ import { STORIES } from './mock-stories';
     providedIn: 'root',
 })
 export class StoryService {
-    private baseUrl: string
+    private baseUrl: string;
 
     constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
         this.baseUrl = baseUrl;
@@ -22,7 +22,7 @@ export class StoryService {
     }
 
     public getStoryById(id: number) {
-        return this.http.get<Story>(this.baseUrl + `api/hacker/stories/${id}`)
+        return this.http.get<Story>(this.baseUrl + `api/hacker/stories/${id}`);
     }
 }
 
@@ -51,3 +51,4 @@ export interface Comment extends Item {
     url: string;
     commentCount: number;
 }
+
