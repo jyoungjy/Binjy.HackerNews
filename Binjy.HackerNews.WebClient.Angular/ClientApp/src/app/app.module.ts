@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { CommentListComponent } from './comment-list/comment-list.component';
 import { StoryComponent } from './story/story.component';
 import { StoryListComponent } from './story-list/story-list.component';
 
@@ -14,7 +15,8 @@ import { StoryListComponent } from './story-list/story-list.component';
     AppComponent,
     NavMenuComponent,
     StoryComponent,
-    StoryListComponent
+    StoryListComponent,
+    CommentListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
